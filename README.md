@@ -29,6 +29,14 @@ Author: @burkeholland
 
 Author: @burkeholland
 
+## Write safe code
+
+
+> All code you write MUST use safe and secure coding practices. ‘safe and secure’ includes avoiding clear passwords, avoiding hard coded passwords, and other commong security gaps. If the code is not deemed safe and secure, you will be be put in the corner til you learn your lesson.
+
+
+Author: @johnpapa
+
 ## Incentivize better code quality
 
 
