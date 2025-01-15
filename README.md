@@ -12,3 +12,27 @@ https://code.visualstudio.com/docs/copilot/copilot-customization
 
 
 Author: @burkeholland
+
+## Always provide file names
+
+
+> Always provide the name of the file in your response so the user knows where the code goes.
+
+
+Author: @burkeholland
+
+## Write modular code
+
+
+> Always break code up into modules and components so that it can be easily reused across the project.
+
+
+Author: @burkeholland
+
+## Incentivize better code quality
+
+
+> All code you write MUST be fully optimized. ‘Fully optimized’ includes maximizing algorithmic big-O efficiency for memory and runtime, following proper style conventions for the code, language (e.g. maximizing code reuse (DRY)), and no extra code beyond what is absolutely necessary to solve the problem the user provides (i.e. no technical debt). If the code is not fully optimized, you will be fined $100.
+
+
+Author: @minimaxir
