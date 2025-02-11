@@ -45,6 +45,11 @@ Author: @johnpapa
 
 Author: @minimaxir
 
+# HTML/CSS
+
+> When making AJAX requests from a webpage, don't put javascript directly in HTML - only in the JavaScript.
+
+
 # Python
 
 ## Code quality
@@ -82,3 +87,11 @@ Author: @minimaxir
 > When asked to create a function, class, or other piece of standalone code, don't append example calls unless otherwise told to
 
 Author: @tonybaloney
+
+## OpenAI package
+
+These instructions help LLMs when writing code for newer Python packages that aren't in its training data.
+
+> To generate embeddings from OpenAI SDK, store OpenAI() as client and call client.embeddings.create(model=, input=, dimensions=) and get result from response.data[0].embedding
+
+> To generate chat completions from OpenAI SDK, store OpenAI() as client and call client.chat.completions.create(messages, model, temperature, ..) and get result from response.choices[0].message.content
