@@ -104,8 +104,6 @@ These instructions help LLMs when writing code for newer Python packages that ar
 
 > Always declare parameters at the top of files with @description decorators
 
-> Keep child resource nesting to maximum 2 levels deep
-
 > Use latest stable API versions for all resources
 
 > Use symbolic names for resource references instead of reference() or resourceId() functions
