@@ -95,3 +95,21 @@ These instructions help LLMs when writing code for newer Python packages that ar
 > To generate embeddings from OpenAI SDK, store OpenAI() as client and call client.embeddings.create(model=, input=, dimensions=) and get result from response.data[0].embedding
 
 > To generate chat completions from OpenAI SDK, store OpenAI() as client and call client.chat.completions.create(messages, model, temperature, ..) and get result from response.choices[0].message.content
+
+# Bicep
+
+> When writing Bicep code, use lowerCamelCase for all names (variables, parameters, resources)
+
+> Use resource type descriptive symbolic names (e.g., 'storageAccount' not 'storageAccountName')
+
+> Always declare parameters at the top of files with @description decorators
+
+> Use latest stable API versions for all resources
+
+> Use symbolic names for resource references instead of reference() or resourceId() functions
+
+> Create resource dependencies through symbolic names (resourceA.id) not explicit dependsOn
+
+> Never include secrets or keys in outputs
+
+> Use resource properties directly in outputs (e.g., storageAccount.properties.primaryEndpoints)
