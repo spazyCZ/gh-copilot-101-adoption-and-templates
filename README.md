@@ -29,10 +29,10 @@
 
 Legacy code + AI assistants can be a minefield: IP concerns, missing tests, weird build pipelines… This repo gives you:
 
-* **Step‑by‑step playbooks** (`adoption-playbooks/`) for three project maturity levels.
-* **Language‑specific samples** (`samples/`) with runnable code, per‑sample prompts, VS Code settings, and CI.
+* **Step‑by‑step playbooks** (`adoption-playbooks/` //TODO) for three project maturity levels.
+* **Language‑specific samples** (`samples/` [link](samples/README.md) ) with runnable code, per‑sample prompts, VS Code settings, and CI.
 * **Custom Copilot instructions** to nudge the AI toward *your* style guide.
-* **CI guard‑rails** that block unsafe Copilot suggestions (secrets, no tests, license issues).
+* **Prompt recipes** for common tasks, so you can *“learn by doing”*
 
 Think of it as *“learn by cloning”* — fork it, tweak it, ship it.
 
@@ -103,13 +103,13 @@ That’s it — you’ve used Copilot to *understand*, *test*, and *improve* le
 
 Each project maturity level requires a slightly different adoption approach tailored to its code quality and documentation status.
 
-| Project maturity level                             | Quick link                                                   | Diagram |
+| Project maturity level                             | Quick link                                                   | Status |
 | ------------------------------------------- | ------------------------------------------------------------ | ------- |
-| **Level 1** — Well‑tested, documented       | [`adoption-playbooks/level-1/`](adoption-playbooks/level-1/) |         |
-| **Level 2** — No tests but decent structure | [`adoption-playbooks/level-2/`](adoption-playbooks/level-2/) |         |
-| **Level 3** — Low quality, sparse docs      | [`adoption-playbooks/level-3/`](adoption-playbooks/level-3/) |         |
+| **Level 1** — Well‑tested, documented       | [`adoption-playbooks/level-1/`](adoption-playbooks/README.md) |  🔴 not started          |
+| **Level 2** — No tests but decent structure | [`adoption-playbooks/level-2/`](adoption-playbooks/README.md) | 🔴 not started           |
+| **Level 3** — Low quality, sparse docs      | [`adoption-playbooks/level-3/`](adoption-playbooks/README.md) |   🔴 not started         |
 
-Each folder contains:
+Each folder *will* contain:
 
 * **Checklist.md** — step‑by‑step tasks
 * **`*.mmd`** — Mermaid source for the diagrams
@@ -121,6 +121,8 @@ Each folder contains:
 
 Prompt recipes live in **`samples/<tech>/.github/prompts/`** so they travel with the code they were tested on.
 File naming convention:
+
+
 
 ```
 <topic>[-agent_]context.prompt.md
@@ -169,6 +171,13 @@ samples/python-module/
 | `copilot-instructions.md`     | Custom guidance that nudges Copilot toward PEP 8 + project patterns.        |
 | `tests/`                      | Characterisation tests generated before modifying behaviour.                |
 | `src/`                        | Code under test; start here when exploring the sample.                      |
+
+---
+
+## 🚀 Explore the Samples
+
+Curious how Copilot works in real projects? Jump into the [samples/](samples/README.md) folder to try runnable demos for Python, *(Java, TypeScript, in progress)* and more. Each sample includes ready-to-run code, prompt recipes, and custom Copilot instructions—perfect for hands-on learning!
+
 
 ---
 
