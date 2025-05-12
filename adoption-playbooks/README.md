@@ -6,7 +6,7 @@ This folder holds **step‑by‑step guides** (checklists + [Mermaid](https://me
 
 ## 🎯 Goal & Purpose
 
-*Provide a **********clear, repeatable roadmap********** for teams who want to unlock Copilot’s productivity gains **********without compromising quality or safety**********.*
+*Provide a **clear, repeatable roadmap** for teams who want to unlock Copilot’s productivity gains **without compromising quality or safety**.*
 
 1. **Reduce risk** – Every playbook starts with guard‑rails (tests, CI, policy files) before enabling code generation.
 2. **Meet teams where they are** – Three maturity levels mean you don’t have to “boil the ocean” up front.
