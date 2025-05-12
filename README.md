@@ -1,122 +1,194 @@
-# awesome-copilot-instructions
+# Copilot Adoption 101 — Playbooks & Instructions & Prompts  🚀🤖
 
-Awesome custom instructions for GitHub Copilot
 
-See docs about how to add instructions here:
-https://code.visualstudio.com/docs/copilot/copilot-customization
 
-## Avoid triggering public code warnings
+ 
 
+> **TL;DR** — A “ready‑to‑eat” toolkit that shows you **how to adopt GitHub Copilot safely** in legacy projects *and* gives you **curated prompt recipes** per technology so you can start shipping value in minutes.
 
-> Avoid generating code verbatim from public code examples. Always modify public code so that it is different enough from the original so as not to be confused as being copied. When you do so, provide a footnote to the user informing them.
+---
+![Copilot Adoption 101 Banner](images/landing.png)
 
 
-Author: @burkeholland
+## 🍽️ Table of Contents
 
-## Always provide file names
+1. [Why this repo?](#why-this-repo)
+2. [Folder layout](#folder-layout)
+3. [Quick start ⚡](#quick-start-)
+   * [Copilot Quick-Start for Beginners (20 mins)](adoption-playbooks/readme-copilot-101-in-20mins.md)
+   * [Marking AI-Generated Tests for Manual Review](adoption-playbooks/readme-marking-tests-ai-generated.md)
+4. [Ready‑to‑eat walkthrough](#ready-to-eat-walkthrough)
+5. [Playbooks](#playbooks)
+6. [Prompt library](#prompt-library)
+7. [Contributing](#contributing)
+8. [License](#license)
 
+---
 
-> Always provide the name of the file in your response so the user knows where the code goes.
+## Why this repo?
 
+Legacy code + AI assistants can be a minefield: IP concerns, missing tests, weird build pipelines… This repo gives you:
 
-Author: @burkeholland
+* **Step‑by‑step playbooks** (`adoption-playbooks/`) for three project maturity levels.
+* **Language‑specific samples** (`samples/`) with runnable code, per‑sample prompts, VS Code settings, and CI.
+* **Custom Copilot instructions** to nudge the AI toward *your* style guide.
+* **CI guard‑rails** that block unsafe Copilot suggestions (secrets, no tests, license issues).
 
-## Write modular code
+Think of it as *“learn by cloning”* — fork it, tweak it, ship it.
 
+---
 
-> Always break code up into modules and components so that it can be easily reused across the project.
+## Folder layout
 
+```text
+.
+├── adoption-playbooks/       # Level 1‑3 onboarding guides (Mermaid + markdown)
+└── samples/                  # runnable tech demos
+    ├── python-module/
+    ├── python-web-flask/
+    ├── java-springboot/
+    └── typescript-general/
+```
 
-Author: @burkeholland
+Each **sample** has its own **`.github/`** (prompt recipes, per‑sample CI) and **`.vscode/`** (extension list, launch configs) so you can open a folder and start coding immediately.
 
-## Write safe code
+---
 
+## Quick start ⚡
 
-> All code you write MUST use safe and secure coding practices. ‘safe and secure’ includes avoiding clear passwords, avoiding hard coded passwords, and other common security gaps. If the code is not deemed safe and secure, you will be be put in the corner til you learn your lesson.
+```bash
+# 1 — Clone
+$ git clone https://github.com/your-org/gh-copilot-101-adoption-and-samples.git
+$ cd gh-copilot-101-adoption-and-samples
 
+# 2 — Open a sample in VS Code (with Copilot enabled)
+$ code samples/python-module
 
-Author: @johnpapa
+# 3 — Experiment with Copilot
+```
 
-## Incentivize better code quality
+> **Tip:** The recommended extensions and settings pop up automatically thanks to the folder’s `.vscode/` files.
 
+---
 
-> All code you write MUST be fully optimized. ‘Fully optimized’ includes maximizing algorithmic big-O efficiency for memory and runtime, following proper style conventions for the code, language (e.g. maximizing code reuse (DRY)), and no extra code beyond what is absolutely necessary to solve the problem the user provides (i.e. no technical debt). If the code is not fully optimized, you will be fined $100.
+## Ready‑to‑eat walkthrough
 
+Let’s improve `sum_numbers.py` in the **Python module** sample.
 
-Author: @minimaxir
+1. **Ask Copilot to understand the code**
+   Open the file, trigger Copilot Chat and type:
 
-# HTML/CSS
+   ```
+   Explain this function and list three edge cases it might miss.
+   ```
+2. **Generate a test first**
 
-> When making AJAX requests from a webpage, don't put javascript directly in HTML - only in the JavaScript.
+   ```
+   Write a pytest for sum_numbers() covering the edge cases you just identified.
+   ```
 
+   Commit the test **before** touching behaviour.
+3. **Refactor safely**  (guard‑railed by coverage gate)
 
-# Python
+   ```
+   Rewrite sum_numbers() to handle negative inputs and large lists efficiently.
+   ```
 
-## Code quality
 
-> Where possible, prefer duck-typing tests than isinstance, e.g. hasattr(x, attr) not isinstance(x, SpecificClass)
+That’s it — you’ve used Copilot to *understand*, *test*, and *improve* legacy code without breaking prod.
 
-> Use modern Python 3.9+ syntax
+---
 
-> Prefer f-strings for formatting strings rather than .format or % formatting
+## Playbooks
 
-> When creating log statements, never use runtime string formatting. Use the extra argument and % placeholders in the log message
+Each project maturity level requires a slightly different adoption approach tailored to its code quality and documentation status.
 
-> When generating union types, use the union operator, | , not the typing.Union type
+| Project maturity level                             | Quick link                                                   | Diagram |
+| ------------------------------------------- | ------------------------------------------------------------ | ------- |
+| **Level 1** — Well‑tested, documented       | [`adoption-playbooks/level-1/`](adoption-playbooks/level-1/) |         |
+| **Level 2** — No tests but decent structure | [`adoption-playbooks/level-2/`](adoption-playbooks/level-2/) |         |
+| **Level 3** — Low quality, sparse docs      | [`adoption-playbooks/level-3/`](adoption-playbooks/level-3/) |         |
 
-> When merging dictionaries, use the union operator
+Each folder contains:
 
-> When writing type hints for standard generics like dict, list, tuple, use the PEP-585 spec, not typing.Dict, typing.List, etc.
+* **Checklist.md** — step‑by‑step tasks
+* **`*.mmd`** — Mermaid source for the diagrams
+* **Rendered images** you can drop into slides
 
-> Use type annotations in function and method signatures, unless the rest of the code base does not have type signatures
+---
 
-> Do not add inline type annotations for local variables when they are declared and assigned in the same statement.
+## Prompt library
 
-> Prefer pathlib over os.path for operations like path joining
+Prompt recipes live in **`samples/<tech>/.github/prompts/`** so they travel with the code they were tested on.
+File naming convention:
 
-> When using open() in text-mode, explicitly set encoding to utf-8
+```
+<topic>[-agent_]context.prompt.md
+```
 
-> Prefer argparse over optparse
+Examples:
 
-> Use the builtin methods in the itertools module for common tasks on iterables rather than creating code to achieve the same result
+* `fix.prompt.md` — single‑shot fix instructions
 
-> When creating dummy data, don't use "Foo" and "Bar", be more creative
+* `improve-testability.prompt.md` — guidance for refactor‑for‑testability pattern
 
-> When creating dummy data in strings like names don't just create English data, create data in a range of languages like English, Spanish, Mandarin, and Hindi
+* `agent_fixing-tests.prompt.md` — multi‑turn agent to repair failing tests
 
-> When asked to create a function, class, or other piece of standalone code, don't append example calls unless otherwise told to
+Open any prompt file to copy‑paste into Copilot Chat *or* your favourite LLM playground.
 
-Author: @tonybaloney
+---
 
-## Code quality (markdown file)
+## Expanded sample: `python-module/`
 
->  "file": "GH_Custom_Instruction" // import Python code quality instructions from file `GH_Custom_Instruction.md in the root of the workspace
+```text
+samples/python-module/
+├── .github/
+│   ├── prompts/
+│   │   ├── fix.prompt.md
+│   │   ├── agent_fixing-tests.prompt.md
+│   │   └── improve-testability.prompt.md
+│   ├── copilot-instructions.md
 
+├── .vscode/
+│   ├── extensions.json
+│   └── settings.json
+├── src/
+│   ├── __init__.py
+│   └── sum_numbers.py
+├── tests/
+│   └── test_sum_numbers.py
+├── requirements.txt
+└── README.md                # explains sample & how to run it
+```
 
-## OpenAI package
+**Key files explained**
 
-These instructions help LLMs when writing code for newer Python packages that aren't in its training data.
+| File / folder                 | What it’s for                                                               |
+| ----------------------------- | --------------------------------------------------------------------------- |
+| `.github/prompts/*.prompt.md` | Task‑specific prompt recipes used in the walkthrough.                       |
+| `copilot-instructions.md`     | Custom guidance that nudges Copilot toward PEP 8 + project patterns.        |
+| `tests/`                      | Characterisation tests generated before modifying behaviour.                |
+| `src/`                        | Code under test; start here when exploring the sample.                      |
 
-> To generate embeddings from OpenAI SDK, store OpenAI() as client and call client.embeddings.create(model=, input=, dimensions=) and get result from response.data[0].embedding
+---
 
-> To generate chat completions from OpenAI SDK, store OpenAI() as client and call client.chat.completions.create(messages, model, temperature, ..) and get result from response.choices[0].message.content
+## Contributing 🙌 – Contributors wanted!
 
-# Bicep
+We’re actively looking for maintainers, prompt engineers, test writers, and doc aficionados. Check the **help‑wanted** issues or start a Discussion if you have a new idea. Every small PR counts!
 
-> When writing Bicep code, use lowerCamelCase for all names (variables, parameters, resources)
+Found a better prompt? Have a killer workflow? We ❤️ PRs!
 
-> Use resource type descriptive symbolic names (e.g., 'storageAccount' not 'storageAccountName')
+1. Fork & branch: `git switch -c feat/my‑awesome‑prompt`
+2. Add your prompt file under the relevant sample’s `prompts/` folder.
+3. Update that sample’s `README.md` with a short description.
+4. Run `npm run lint && make test` to satisfy CI.
 
-> Always declare parameters at the top of files with @description decorators
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for coding standards and IP checklist.
 
-> Use latest stable API versions for all resources
+---
 
-> Use symbolic names for resource references instead of reference() or resourceId() functions
+## License
 
-> Create resource dependencies through symbolic names (resourceA.id) not explicit dependsOn
+MIT — see [`LICENSE`](LICENSE).
 
-> Never include secrets or keys in outputs
-
-> Use resource properties directly in outputs (e.g., storageAccount.properties.primaryEndpoints)
-
-
+> Logo and product names are trademarks of their respective owners. This repo is **not** affiliated with or endorsed by GitHub.
