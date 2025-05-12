@@ -64,7 +64,7 @@ $ cd gh-copilot-101-adoption-and-samples
 # 2 — Open a sample in VS Code (with Copilot enabled)
 $ code samples/python-module
 
-# 3 — Expermitent with Copilot
+# 3 — Experiment with Copilot
 ```
 
 > **Tip:** The recommended extensions and settings pop up automatically thanks to the folder’s `.vscode/` files.
