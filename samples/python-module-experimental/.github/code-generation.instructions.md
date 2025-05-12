@@ -1,0 +1,31 @@
+---
+applyTo: "**/*.{js,ts,py,java,cs}"
+---
+# Code Generation Instructions
+
+- Generate clear, maintainable, and testing-friendly code.
+- Ensure all code includes thorough documentation and data type declarations.
+- All new classes and methods must be well-documented with docstrings and comments.
+- Use type hints for all function parameters and return values (Python).
+- Use the primary logging mechanism for printing events (never use print directly).
+- Use async/await and non-blocking operations for asynchronous code.
+- Implement proper exception handling in all async functions.
+- Use async locks when modifying shared data structures (Python).
+- Follow the existing pattern of using asyncio.create_task for non-blocking operations (Python).
+- Optimize for performance, especially in latency-sensitive environments.
+- All code must be optimized for environments where microseconds matter.
+- Implement efficient algorithms with O(1) or O(log n) time complexity where possible.
+- Minimize memory allocations and garbage collection triggers.
+  - Use object pooling for frequently created/destroyed objects.
+  - Pre-allocate buffers and arrays where sizes are predictable.
+- Avoid blocking operations in the main execution path.
+  - Use non-blocking I/O operations.
+  - Implement circuit breakers for external service calls.
+- Optimize data structures for quick access patterns.
+  - Use fixed-size arrays instead of dynamic collections where appropriate.
+  - Consider memory layout and cache locality for hot path data.
+- Profile and optimize critical code paths regularly.
+  - Identify and eliminate bottlenecks.
+  - Benchmark against defined latency SLAs.
+- Minimize external dependencies that could introduce latency.
+- Use lock-free algorithms and data structures when possible.

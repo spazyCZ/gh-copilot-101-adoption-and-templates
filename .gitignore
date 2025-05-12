@@ -1,0 +1,2 @@
+# Ignore only the .vscode directory in the root of the repository
+/.vscode/
