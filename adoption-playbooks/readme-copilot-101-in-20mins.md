@@ -130,6 +130,6 @@ You can append additional context after the command if needed.
 
 * Explore more prompt recipes in [`templates/`](../templates/).
 * Try generating doc‑strings or SQL queries.
-* When comfortable, move on to the full **Level‑1 Playbook**. *//TODO*
+* When comfortable, move on to the full **Level‑1 Playbook**. +*//TODO*
 
 Happy coding! If you hit issues, open a Discussion or ask a teammate. 👋
