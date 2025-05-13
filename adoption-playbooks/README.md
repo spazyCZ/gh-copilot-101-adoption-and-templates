@@ -32,7 +32,7 @@ flowchart LR
 **Step overview**
 
 1. **Meet with Copilot** – enable Copilot in your IDE, take time to read the documentation or watch a short video to discover key features.
-2. **Understand style & project** – feed Copilot your coding guidelines and ask it to summarise key components, then explore the [samples](../samples/) folder for concrete prompt‑driven examples.
+2. **Understand style & project** – feed Copilot your coding guidelines and ask it to summarise key components, then explore the [templates](../templates/) folder for concrete prompt‑driven examples.
 3. **Test & optimise instructions** – generate a small change, verify tests pass, and refine your custom instructions.
 
 ---

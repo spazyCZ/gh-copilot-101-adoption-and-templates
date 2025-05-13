@@ -4,29 +4,30 @@
 
 ---
 
-### 📊 Quick Flow
+### 📊 Combined Flow and Roadmap
 
 ```mermaid
-flowchart TD
-  A([Install Copilot]) --> B([Create custom instruction]) --> C([Test instructions]) --> D([Slash‑prompt shortcut]) --> E([Happy coding!])
-  click A "#1-install-copilot"
-  click B "#2-create-a-custom-instruction"
-  click C "#3-test-the-instructions"
-  click D "#4-create-slash-prompt-shortcuts"
-  style A align:left
-  style B align:left
-  style C align:left
-  style D align:left
-  style E align:left
+flowchart LR
+    A[🚀 Install Copilot] --> B[📝 Create custom instruction]
+    B --> C[🧪 Test instructions]
+    C --> D[⚡ Slash‑prompt shortcuts]
+    D --> E[😊 Happy coding!]
+    E --> F[📚 Best Practices]
+    click A "#1-install-copilot"
+    click B "#2-create-a-custom-instruction"
+    click C "#3-test-the-instructions"
+    click D "#4-create-slash-prompt-shortcuts"
+    classDef stepStyle fill:#fceabb,stroke:#e1a12f,stroke-width:2px,rx:5,ry:5;
+    class A,B,C,D,E,F stepStyle;
 ```
 
 ---
 
-> **Need inspiration?** Browse the [samples](../samples/) directory for ready‑made mini projects you can practice on.
+> **Need inspiration?** Browse the [templates](../templates/) directory for ready‑made mini projects you can practice on.
 
 ## 🛠 1 · Install Copilot
 
-1. Open **VS Code** (or JetBrains IDE).
+1. Open **VS Code** (or JetBrains IDE). ⚙️
 2. Go to **Extensions ⇢ Marketplace** and search **“GitHub Copilot”**.
 3. Click **Install** → **Sign in** with your GitHub account.
 4. You’re done! A ✨ icon appears in the status bar.
@@ -37,7 +38,7 @@ flowchart TD
 
 ## ✍️ 2 · Create a custom instruction
 
-Copilot works best when it knows your style. Add a small file so it can read it each time — see an [example instruction file](../samples/README.md).
+Copilot works best when it knows your style. Add a small file so it can read it each time — see an [example instruction file](../templates/README.md).
 
 ```text
 # .github/copilot-instructions.md
@@ -46,7 +47,8 @@ Use descriptive variable names.
 Always add type hints.
 ```
 
-Commit & push the file—Copilot will now follow these rules automatically.
+> **Note:** 🚨 **IMPORTANT:** The customized instruction is a must-have for an optimal Copilot experience. 🌟✨
+
 
 ---
 
@@ -63,16 +65,11 @@ Let’s create a **tiny feature** and **unit tests** to see Copilot in action.
 
    *Pause after the doc‑string—Copilot will suggest the rest of the function.*
 
-2. Accept the suggestion (`Tab`).
+2. Create a **`tests`** folder. Add **`test_sum_numbers.py`**. Copilot should fill the edge‑case tests.
 
-3. Make a **`tests`** folder. Add **`test_sum_numbers.py`** and type `pytest` skeleton; Copilot should fill the edge‑case tests.
+3. Iterate on the function and tests until you’re happy with the results.
 
-4. Run:
 
-   ```bash
-   python -m pip install pytest
-   pytest -q
-   ```
 
 **Iterate until output is not what you expect. Refine the instructions and repeat**
 
@@ -96,29 +93,24 @@ Copy‑paste any prompt, tweak names, and watch Copilot draft the tests for you.
 
 ## 🔁 4 · Create slash‑prompt shortcuts
 
-If you repeat certain prompts, save them as chat *commands*.
+Instead of using local snippets, store reusable prompt commands in a workspace prompt file.
 
-1. Open Copilot Chat panel.
-2. Type `/alias` to create a new shortcut (JetBrains) **or** add a snippet in VS Code.
-
-Example command **`/my-prompt`**:
+1. Create a folder `.github/prompts` at the root of your repository if it doesn't exist.
+2. Create a file named `slash-prompts.prompt.md` inside `.github/prompts`.
+3. Add your custom command in the file. For example:
 
 ```text
+/alias /my-prompt
 Rewrite the selected code to use list comprehensions and add type hints.
 ```
 
-Now you can simply type:
-
+4. Now, in Copilot Chat simply type:
 ```
-/my-prompt  # Copilot expands the template
+/my-prompt  # Copilot expands the prompt
 ```
+You can append additional context after the command if needed.
 
-Add `<additional info>` after the command if you need context.
-
-> **Where to store commands:**
-> • **JetBrains IDEs:** *Settings → Tools → GitHub Copilot → Custom Commands* (saves to `~/.config/github‑copilot/aliases.json`).
-> • **VS Code:** create a snippet file like `.vscode/copilot-snippets.code-snippets` (name must end with `.code-snippets`).
-> Check the [sample snippet file](../samples/python-module/.vscode/copilot-snippets.code-snippets) for a ready template.
+> **Note:** This workspace variant centralizes your custom commands across your team and projects.
 
 ---
 
@@ -129,14 +121,14 @@ Add `<additional info>` after the command if you need context.
 3. **Comment for context** – well‑placed comments help AI (and humans) understand intent, resulting in better suggestions.
 4. **Visualise with Mermaid** – insert sequence, class, or flow charts in your markdown so Copilot Chat can reason about architecture.
 
-> The prepared [samples](../samples/) follow these conventions—use them as blueprints.
+> The prepared [templates](../templates/) follow these conventions—use them as blueprints.
 
 ---
 
 ## 🚀 Next steps
 
-* Explore more prompt recipes in [`samples/`](../samples/).
+* Explore more prompt recipes in [`templates/`](../templates/).
 * Try generating doc‑strings or SQL queries.
-* When comfortable, move on to the full **Level‑1 Playbook**.
+* When comfortable, move on to the full **Level‑1 Playbook**. +*//TODO*
 
 Happy coding! If you hit issues, open a Discussion or ask a teammate. 👋
