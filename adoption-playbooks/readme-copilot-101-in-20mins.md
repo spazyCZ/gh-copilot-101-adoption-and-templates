@@ -45,7 +45,6 @@ Copilot works best when it knows your style. Add a small file so it can read it 
 Write Python in PEP 8 style.
 Use descriptive variable names.
 Always add type hints.
-Add comment that I am author and using Copilot.:-) 
 ```
 
 > **Note:** 🚨 **IMPORTANT:** The customized instruction is a must-have for an optimal Copilot experience. 🌟✨
