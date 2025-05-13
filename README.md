@@ -1,4 +1,4 @@
-# Copilot Adoption 101 — Playbooks & Instructions & Prompts  🚀🤖
+# Copilot Adoption 101 — (instructions + prompts) & adoption playbooks  🚀🤖
 
 
 
@@ -13,15 +13,14 @@
 ## 🍽️ Table of Contents
 
 1. [Why this repo?](#why-this-repo)
-2. [Folder layout](#folder-layout)
+2. [Main folders](#main-folders)
 3. [Quick start ⚡](#quick-start-)
    * [Copilot Quick-Start for Beginners (20 mins)](adoption-playbooks/readme-copilot-101-in-20mins.md)
    * [Marking AI-Generated Tests for Manual Review](adoption-playbooks/readme-marking-tests-ai-generated.md)
-4. [Ready‑to‑eat walkthrough](#ready-to-eat-walkthrough)
+4. [🚀 Explore the Templates](#-explore-the-templates)
 5. [Playbooks](#playbooks)
-6. [Prompt library](#prompt-library)
-7. [Contributing](#contributing)
-8. [License](#license)
+6. [Contributing](#contributing)
+7. [License](#license)
 
 ---
 
@@ -30,7 +29,7 @@
 Legacy code + AI assistants can be a minefield: IP concerns, missing tests, weird build pipelines… This repo gives you:
 
 * **Step‑by‑step playbooks** (`adoption-playbooks/` //TODO) for three project maturity levels.
-* **Language‑specific samples** (`samples/` [link](samples/README.md) ) with runnable code, per‑sample prompts, VS Code settings, and CI.
+* **Language‑specific templates** (`templates/` [link](templates/README.md) ) with runnable code, per‑template prompts, VS Code settings, and CI.
 * **Custom Copilot instructions** to nudge the AI toward *your* style guide.
 * **Prompt recipes** for common tasks, so you can *“learn by doing”*
 
@@ -38,21 +37,20 @@ Think of it as *“learn by cloning”* — fork it, tweak it, ship it.
 
 ---
 
-## Folder layout
+## Main folders
 
 ```text
 .
 ├── adoption-playbooks/       # Level 1‑3 onboarding guides (Mermaid + markdown)
-└── samples/                  # runnable tech demos
-    ├── python-module/
-    ├── python-web-flask/
-    ├── java-springboot/
-    └── typescript-general/
+└── templates/                # templates for different languages
+    
 ```
 
-Each **sample** has its own **`.github/`** (prompt recipes, per‑sample CI) and **`.vscode/`** (extension list, launch configs) so you can open a folder and start coding immediately.
+Each **template** has its own **`.github/`** (prompt recipes, per‑template CI) and **`.vscode/`** (extension list, launch configs) so you can open a folder and start coding immediately.
+
 
 ---
+
 
 ## Quick start ⚡
 
@@ -62,7 +60,7 @@ $ git clone https://github.com/your-org/gh-copilot-101-adoption-and-samples.git
 $ cd gh-copilot-101-adoption-and-samples
 
 # 2 — Open a sample in VS Code (with Copilot enabled)
-$ code samples/python-module
+$ code templates/python-module
 
 # 3 — Experiment with Copilot
 ```
@@ -71,79 +69,16 @@ $ code samples/python-module
 
 ---
 
-## Ready‑to‑eat walkthrough
 
-Let’s improve `sum_numbers.py` in the **Python module** sample.
+## 🚀 Explore the Templates
 
-1. **Ask Copilot to understand the code**
-   Open the file, trigger Copilot Chat and type:
-
-   ```
-   Explain this function and list three edge cases it might miss.
-   ```
-2. **Generate a test first**
-
-   ```
-   Write a pytest for sum_numbers() covering the edge cases you just identified.
-   ```
-
-   Commit the test **before** touching behaviour.
-3. **Refactor safely**  (guard‑railed by coverage gate)
-
-   ```
-   Rewrite sum_numbers() to handle negative inputs and large lists efficiently.
-   ```
+Curious how Copilot works in real projects? Jump into the [templates/](templates/README.md) folder to try runnable demos organized by technology (e.g., Python, Java, TypeScript, etc.). Each template includes ready-to-run code, prompt recipes, and custom Copilot instructions—perfect for hands-on learning!
 
 
-That’s it — you’ve used Copilot to *understand*, *test*, and *improve* legacy code without breaking prod.
-
----
-
-## Playbooks
-
-Each project maturity level requires a slightly different adoption approach tailored to its code quality and documentation status.
-
-| Project maturity level                             | Quick link                                                   | Status |
-| ------------------------------------------- | ------------------------------------------------------------ | ------- |
-| **Level 1** — Well‑tested, documented       | [`adoption-playbooks/level-1/`](adoption-playbooks/README.md) |  🔴 not started          |
-| **Level 2** — No tests but decent structure | [`adoption-playbooks/level-2/`](adoption-playbooks/README.md) | 🔴 not started           |
-| **Level 3** — Low quality, sparse docs      | [`adoption-playbooks/level-3/`](adoption-playbooks/README.md) |   🔴 not started         |
-
-Each folder *will* contain:
-
-* **Checklist.md** — step‑by‑step tasks
-* **`*.mmd`** — Mermaid source for the diagrams
-* **Rendered images** you can drop into slides
-
----
-
-## Prompt library
-
-Prompt recipes live in **`samples/<tech>/.github/prompts/`** so they travel with the code they were tested on.
-File naming convention:
-
-
-
-```
-<topic>[-agent_]context.prompt.md
-```
-
-Examples:
-
-* `fix.prompt.md` — single‑shot fix instructions
-
-* `improve-testability.prompt.md` — guidance for refactor‑for‑testability pattern
-
-* `agent_fixing-tests.prompt.md` — multi‑turn agent to repair failing tests
-
-Open any prompt file to copy‑paste into Copilot Chat *or* your favourite LLM playground.
-
----
-
-## Expanded sample: `python-module/`
+### Expanded sample: `templates/python-module/`
 
 ```text
-samples/python-module/
+templates/python-module/
 ├── .github/
 │   ├── prompts/
 │   │   ├── fix.prompt.md
@@ -172,14 +107,28 @@ samples/python-module/
 | `tests/`                      | Characterisation tests generated before modifying behaviour.                |
 | `src/`                        | Code under test; start here when exploring the sample.                      |
 
+
+--
+
+## Playbooks
+
+Each project maturity level requires a slightly different adoption approach tailored to its code quality and documentation status.
+
+| Project maturity level                             | Quick link                                                   | Status |
+| ------------------------------------------- | ------------------------------------------------------------ | ------- |
+| **Level 1** — Well‑tested, documented       | [`adoption-playbooks/level-1/`](adoption-playbooks/README.md) |  🔴 not started          |
+| **Level 2** — No tests but decent structure | [`adoption-playbooks/level-2/`](adoption-playbooks/README.md) | 🔴 not started           |
+| **Level 3** — Low quality, sparse docs      | [`adoption-playbooks/level-3/`](adoption-playbooks/README.md) |   🔴 not started         |
+
+Each folder *will* contain:
+
+* **Checklist.md** — step‑by‑step tasks
+* **`*.mmd`** — Mermaid source for the diagrams
+* **Rendered images** you can drop into slides
+
 ---
 
-## 🚀 Explore the Samples
 
-Curious how Copilot works in real projects? Jump into the [samples/](samples/README.md) folder to try runnable demos for Python, *(Java, TypeScript, in progress)* and more. Each sample includes ready-to-run code, prompt recipes, and custom Copilot instructions—perfect for hands-on learning!
-
-
----
 
 ## Contributing 🙌 – Contributors wanted!
 
