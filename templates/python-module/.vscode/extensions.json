@@ -1,7 +1,7 @@
 {
   "recommendations": [
-    "Github.copilot",
-    "Github.copilot-chat",
+    "GitHub.copilot",
+    "GitHub.copilot-chat",
     "ms-vscode.copilot-mermaid-diagram"
   ]
 }
