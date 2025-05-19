@@ -1,0 +1,22 @@
+# Jupyter Project Requirements
+# Run: pip install -r requirements.txt
+
+# Core Data Science Libraries
+pandas>=1.5.0
+numpy>=1.22.0
+matplotlib>=3.5.0
+seaborn>=0.12.0
+
+# Jupyter and Interactive Computing
+jupyter>=1.0.0
+ipywidgets>=8.0.0
+
+# Utilities for Data Processing
+scipy>=1.8.0
+scikit-learn>=1.0.0
+
+# Documentation and Type Hints
+typing-extensions>=4.0.0
+
+# Testing
+pytest>=7.0.0

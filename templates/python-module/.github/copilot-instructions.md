@@ -1,34 +1,55 @@
 # Copilot Instructions
 
+## Table of Contents
+- [Introduction](#introduction)
+- [Key Objectives](#key-objectives)
+- [Core Guidelines](#core-guidelines)
+  - [Documentation Standards](#1-documentation-standards)
+  - [Type Safety](#2-type-safety)
+  - [Testing Best Practices](#3-testing-best-practices)
+  - [Logging Standards](#4-logging-standards)
+  - [Additional Technical Requirements](#5-additional-technical-requirements)
+- [Coding Style and Best Practices](#coding-style-and-best-practices)
+- [Conclusion](#conclusion)
+- [Optional Application Patterns](#optional-application-patterns)
+
+## Introduction
 This document provides comprehensive guidelines for generating code using GitHub Copilot in our project. The instructions combine best practices with our specific requirements and default tech stack.
 
-## Objectives
-- Generate clear, maintainable, and testing-friendly code.
-- Ensure the code includes thorough documentation and data type declarations.
-- Open-source quality code that is easy to understand and modify.
-- Open-source quality for documentation and comments.
-- Ensure all new classes and methods are well-documented.
-- Produce comprehensive tests with new classes.
+## Key Objectives
+✓ Generate clear, maintainable, and testing-friendly code
+✓ Include thorough documentation and type declarations
+✓ Create open-source quality code and documentation
+✓ Ensure all new code components are well-documented
+✓ Produce comprehensive tests for new functionality
 
-## Guidelines
+## Core Guidelines
 
-### 1. Documentation and Comments
-- Every class and method must have comments explaining their purpose and functionality.
-- Example:
-  ```python
-  # A class representing a data processor.
-  class DataProcessor:
-      # Initializes the DataProcessor with initial configuration.
-      def __init__(self, config: dict) -> None:
-          """
-          Initialize with configuration settings.
-          
-          :param config: Dictionary containing configuration parameters.
-          """
-          self.config = config
-  ```
+### 1. Documentation Standards
+**Required for all code**
 
-### 2. Data Type Declarations
+Every class and method must have comments explaining their purpose:
+
+```python
+# A class representing a data processor.
+class DataProcessor:
+    """
+    Process data according to configured rules.
+    
+    This class handles the transformation of input data
+    based on configuration parameters.
+    """
+    
+    def __init__(self, config: dict) -> None:
+        """
+        Initialize with configuration settings.
+        
+        :param config: Dictionary containing configuration parameters.
+        """
+        self.config = config
+```
+
+### 2. Type Safety
 - Methods and functions must declare the data types for both parameters and return values.
 - Example:
   ```python
@@ -53,17 +74,14 @@ This document provides comprehensive guidelines for generating code using GitHub
           pass
   ```
 
-
-### 3. Testing Friendly Code
+### 3. Testing Best Practices
 - Code should be written in a manner that facilitates unit testing.
 - Separate business logic from UI and external dependencies.
 - Use dependency injection where possible to make testing easier.
-
-### 4. Test Creation with New Classes
 - Create separate test classes for new code. These tests should cover different scenarios and edge cases.
 - Place tests in designated test files or directories.
 - Use a consistent naming convention for test files (e.g., `test_<module_name>_<test_type>.py`).
-- split tests mock and integration tests. NEVER COMBINE THEM INTO ONE FILE
+- Split tests into mock and integration tests. NEVER COMBINE THEM INTO ONE FILE.
 - Set up data before running tests to ensure a clean state.
 - **Mark all AI-generated tests for manual review as follows:**
   - **Python:**  
@@ -76,11 +94,11 @@ This document provides comprehensive guidelines for generating code using GitHub
     ```python
     @pytest.mark.ai_generated
     ```
-- Follow the Arrange–Act–Assert structure
-- Include TODO comments where logic may be unclear
-- Prefer readable variable names and avoid magic values
+- Follow the Arrange–Act–Assert structure.
+- Include TODO comments where logic may be unclear.
+- Prefer readable variable names and avoid magic values.
 
-### 5. Primary Logging for Printing Events
+### 4. Logging Standards
 - Use the primary logging mechanism for printing events instead of using print statements directly.
 - Example:
   ```python
@@ -91,12 +109,13 @@ This document provides comprehensive guidelines for generating code using GitHub
   logger = logging.getLogger(__name__)
   ```
 
+### 5. Additional Technical Requirements
 
-### 7. Asynchronous Programming
-- Use async/await consistently throughout the codebase
-- Implement proper exception handling in all async functions
-- Use async locks when modifying shared data structures
-- Follow the existing pattern of using asyncio.create_task for non-blocking operations
+#### Asynchronous Programming
+- Use async/await consistently throughout the codebase.
+- Implement proper exception handling in all async functions.
+- Use async locks when modifying shared data structures.
+- Follow the existing pattern of using asyncio.create_task for non-blocking operations.
 - Example:
   ```python
   import asyncio
@@ -116,25 +135,28 @@ This document provides comprehensive guidelines for generating code using GitHub
           # Record error metric
   ```
 
+#### Performance Optimization for Low Latency Apps
+- **CRITICAL**: All code must be optimized for environments where microseconds matter.
+- Implement efficient algorithms with O(1) or O(log n) time complexity where possible.
+- Minimize memory allocations and garbage collection triggers.
+  - Use object pooling for frequently created/destroyed objects.
+  - Pre-allocate buffers and arrays where sizes are predictable.
+- Avoid blocking operations in the main execution path.
+  - Use non-blocking I/O operations.
+  - Implement circuit breakers for external service calls.
+- Optimize data structures for quick access patterns.
+  - Use fixed-size arrays instead of dynamic collections where appropriate.
+  - Consider memory layout and cache locality for hot path data.
+- Profile critical code paths regularly.
+  - Identify and eliminate bottlenecks.
+  - Benchmark against defined latency SLAs.
+- Minimize external dependencies that could introduce latency.
+- Use lock-free algorithms and data structures when possible.
 
-### 9. Performance Optimization for Low Latency Apps
-- **CRITICAL**: All code must be optimized for environments where microseconds matter
-- Implement efficient algorithms with O(1) or O(log n) time complexity where possible
-- Minimize memory allocations and garbage collection triggers
-  - Use object pooling for frequently created/destroyed objects
-  - Pre-allocate buffers and arrays where sizes are predictable
-- Avoid blocking operations in the main execution path
-  - Use non-blocking I/O operations
-  - Implement circuit breakers for external service calls
-- Optimize data structures for quick access patterns
-  - Use fixed-size arrays instead of dynamic collections where appropriate
-  - Consider memory layout and cache locality for hot path data
-- Profile critical code paths regularly
-  - Identify and eliminate bottlenecks
-  - Benchmark against defined latency SLAs
-- Minimize external dependencies that could introduce latency
-- Use lock-free algorithms and data structures when possible
--
+#### Environment Configuration
+- All keys and environment variables must be read from a .env file. Use an appropriate library (e.g. python-dotenv for Python) to securely load these configurations.
+- Do NOT hardcode any secrets; always load them from the .env file.
+
 ## Coding Style and Best Practices
 - **Modularity**: Write modular code that is easier to maintain and test.
 - **Consistency**: Follow consistent naming conventions and coding standards.
@@ -144,3 +166,61 @@ This document provides comprehensive guidelines for generating code using GitHub
 
 ## Conclusion
 These instructions are designed to ensure that GitHub Copilot produces code that is efficient, well-documented, adaptable for testing, and adheres to our project requirements. Feel free to iterate on these guidelines as the project evolves.
+
+## Optional Application Patterns
+
+### For Module-Based Applications:
+- Emphasize reusability by including module-level docstrings and an __all__ declaration.
+- Separate reusable logic from execution code.
+- Ensure public APIs are fully documented and type-hinted.
+
+Example:
+```python
+"""
+This module provides functions and classes for data processing.
+
+Functions:
+  - process_data: Processes input data and returns results.
+
+Classes:
+  - DataProcessor: Encapsulates data transformation logic.
+"""
+__all__ = ["process_data", "DataProcessor"]
+```
+- NOTE: When adding a new module, also update /data/projects/code_workspace/rma_stuff/requirements.txt with any new dependencies.
+
+### For Console (CLI) Applications:
+- Include a dedicated main function with argument parsing using argparse.
+- Use logging (not print) for console output.
+- Separate CLI logic from business logic to ease unit testing.
+
+Example:
+```python
+import argparse
+import logging
+
+def parse_args() -> argparse.Namespace:
+    """
+    Parse command-line arguments.
+    
+    :return: Parsed arguments.
+    """
+    parser = argparse.ArgumentParser(description="My Console App")
+    parser.add_argument("--input", required=True, help="(Required) Path to the input file.")
+    parser.add_argument("--output", required=True, help="(Required) Path to the output file.")
+    return parser.parse_args()
+
+def main() -> None:
+    """
+    Main entry point for the console application.
+    """
+    args = parse_args()
+    logging.basicConfig(level=logging.INFO)
+    logger = logging.getLogger(__name__)
+    logger.info("Processing started...")
+    # ...existing logic...
+    logger.info("Processing completed.")
+
+if __name__ == "__main__":
+    main()
+```
