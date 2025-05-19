@@ -1,1 +1,1 @@
-fix the error form terminalSelection or passed next
+fix the error from terminalSelection or passed next
