@@ -1,14 +1,13 @@
 # Copilot Adoption 101 — (instructions + prompts) & adoption playbooks  🚀🤖
 
-
-
  
 
-> **TL;DR** — A “ready‑to‑eat” toolkit that shows you **how to adopt GitHub Copilot safely** in legacy projects *and* gives you **curated prompt recipes** per technology so you can start shipping value in minutes.
+> **TL;DR** — A “ready‑to‑eat” toolkit that shows you **how to adopt GitHub Copilot safely** in legacy projects *and* gives you **curated prompt recipes** per technology so you can start shipping value in minutes.  
+>  
+> 👉 **[Browse the templates](templates/)** — including the <span style="background: #ffe066; padding: 0 4px; border-radius: 3px;">🆕 new</span> **[Jupyter](templates/jupyter)** template and our most crafted **[python-module](templates/python-module/)** sample 🚀 ✨.
 
----
+--- 
 ![Copilot Adoption 101 Banner](images/landing.png)
-
 
 ## 🍽️ Table of Contents
 
@@ -18,7 +17,7 @@
    * [Copilot Quick-Start for Beginners (20 mins)](adoption-playbooks/readme-copilot-101-in-20mins.md)
    * [Marking AI-Generated Tests for Manual Review](adoption-playbooks/readme-marking-tests-ai-generated.md)
 4. [🚀 Explore the Templates](#-explore-the-templates)
-5. [Playbooks](#playbooks)
+5. [🎯 Playbooks](#playbooks)
 6. [Contributing](#contributing)
 7. [License](#license)
 

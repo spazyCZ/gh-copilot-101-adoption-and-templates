@@ -1,0 +1,12 @@
+{
+    "recommendations": [
+        "ms-toolsai.jupyter",
+        "ms-toolsai.jupyter-keymap",
+        "ms-toolsai.jupyter-renderers",
+        "ms-python.python",
+        "ms-toolsai.vscode-jupyter-slideshow",
+        "ms-toolsai.jupyter-cell-tags",
+        "ms-python.vscode-pylance",
+        "njpwerner.autodocstring"
+    ]
+}

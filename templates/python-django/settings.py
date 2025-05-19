@@ -417,3 +417,10 @@ This document provides comprehensive guidelines for generating code using GitHub
 
 By following these guidelines and best practices, you'll create Django applications that are maintainable, secure, and perform well.
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()  # Loads variables from .env into environment
+
+SECRET_KEY = os.getenv('SECRET_KEY')
+DATABASE_PASSWORD = os.getenv('DATABASE_PASSWORD')
