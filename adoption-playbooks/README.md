@@ -18,7 +18,7 @@ This folder holds **step‑by‑step guides** (checklists + [Mermaid](https://me
 | Folder                 | Target project type             | One‑liner                              | Status          |
 | ---------------------- | ------------------------------- | -------------------------------------- | --------------- |
 | [`level-1/`](./level-1/README.md) | ✅ Well‑tested, documented code  | “Flip the switch and optimise.”        | 🟢  Draft        |
-| [`level-2/`](level-2/) | No tests, decent structure   | “Build a safety net, then accelerate.” | 🔴 Not Started  |
+| [`level-2/`](./level-2/README.md) | No tests, decent structure   | “Build a safety net, then accelerate.” | 🔴 Not Started  |
 | [`level-3/`](level-3/) | 🔴 Low‑quality, sparse docs     | “Stabilise, characterise, refactor.”   | 🔴 Not Started  |
 
 ### Level‑0 Quick‑start Chart
