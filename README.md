@@ -115,15 +115,9 @@ Each project maturity level requires a slightly different adoption approach tail
 
 | Project maturity level                             | Quick link                                                   | Status |
 | ------------------------------------------- | ------------------------------------------------------------ | ------- |
-| **Level 1** — Well‑tested, documented       | [`adoption-playbooks/level-1/`](adoption-playbooks/README.md) |  🔴 not started          |
-| **Level 2** — No tests but decent structure | [`adoption-playbooks/level-2/`](adoption-playbooks/README.md) | 🔴 not started           |
-| **Level 3** — Low quality, sparse docs      | [`adoption-playbooks/level-3/`](adoption-playbooks/README.md) |   🔴 not started         |
-
-Each folder *will* contain:
-
-* **Checklist.md** — step‑by‑step tasks
-* **`*.mmd`** — Mermaid source for the diagrams
-* **Rendered images** you can drop into slides
+| **Level 1** — Well‑tested, documented       | [`adoption-playbooks/level-1/`](adoption-playbooks/level-1/) |  🟡 first draft          |
+| **Level 2** — No tests but decent structure | [`adoption-playbooks/level-2/`](adoption-playbooks/README.md) | 🔴 not started           |
+| **Level 3** — Low quality, sparse docs      | [`adoption-playbooks/level-3/`](adoption-playbooks/README.md) |   🔴 not started         |
 
 ---
 
